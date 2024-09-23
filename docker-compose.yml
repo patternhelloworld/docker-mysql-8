@@ -1,0 +1,28 @@
+version: "3"
+services:
+  db-master:
+    container_name: ${CONTAINER_NAME}
+    privileged: true
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: Asia/Seoul
+    ports:
+      - '${EXPOSE_PORT}:3306'
+    # Where our data will be persisted
+    volumes:
+      - ${MYSQL_DATA_PATH}:/var/lib/mysql
+      - ${MYSQL_FILE_PATH}:/var/lib/mysql-files
+      - ${MYSQL_LOG_PATH}:/var/log/mysql
+      - ${MYSQL_ETC_PATH}:/var/tmp
+      - ./my.cnf:/etc/mysql/my.cnf
+    networks:
+      - net-mysql
+  
+  
+# Names our volume
+
+networks:
+  net-mysql:
+    driver: bridge

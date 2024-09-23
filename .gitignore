@@ -1,0 +1,26 @@
+.env
+
+/data/*
+!/data/.gitkeep
+
+/log/*
+!/log/.gitkeep
+
+/file/*
+!/file/.gitkeep
+
+/etc/*
+!/etc/.gitkeep
+
+
+### IntelliJ IDEA ###
+/.idea
+/*.iws
+/*.iml
+/*.ipr
+
+# vscode
+**/.vscode
+
+# misc
+**/.DS_Store
